@@ -155,3 +155,8 @@ MonoBehaviour:
   moveSpeed: 4.2
   maxHp: 15
   contactDamage: 10
+  separationRadius: 1.6
+  separationForce: 3.5
+  enemyLayer:
+    serializedVersion: 2
+    m_Bits: 8

@@ -3,7 +3,7 @@ using TMPro;
 
 public class GameTimer : MonoBehaviour
 {
-    [SerializeField] private float totalTime = 1800f; // 30 phút = 1800 giây
+    [SerializeField] private float totalTime = 180f; // 3 phút = 180 giây
     [SerializeField] private TextMeshProUGUI timerText;
     private bool bossSpawned = false;
 

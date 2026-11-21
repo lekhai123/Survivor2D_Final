@@ -27,7 +27,11 @@ public class PlayerHealth : MonoBehaviour
         if (invulnerableTimer > 0f)
             invulnerableTimer -= Time.deltaTime;
     }
-
+    public void Heal(float amount)
+    {
+        currentHp = Mathf.Min(maxHp, currentHp + amount);
+        UpdateHealthUI();
+    }
     public void TakeDamage(float amount)
     {
         if (invulnerableTimer > 0f) return;
@@ -48,7 +52,20 @@ public class PlayerHealth : MonoBehaviour
         if (hpFillBar != null)
             hpFillBar.fillAmount = currentHp / maxHp;
     }
-
+    public void TriggerVictory()
+    {
+        Time.timeScale = 0f;
+        if (gameOverPanel != null)
+        {
+            gameOverPanel.SetActive(true);
+            TMPro.TextMeshProUGUI title = gameOverPanel.GetComponentInChildren<TMPro.TextMeshProUGUI>();
+            if (title != null)
+            {
+                title.text = "VICTORY!";
+                title.color = Color.yellow;
+            }
+        }
+    }
     private void Die()
     {
         Time.timeScale = 0f;
